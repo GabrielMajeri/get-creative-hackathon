@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -31,6 +31,42 @@ size = Vector3( 1, 1, 1 )
 
 [sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 2.78273, 0.746854, 2.05806 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 0.952544, 0.737253 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 3.39326, 1.62976, 1.15431 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.574518, 0.68087, 0.686348 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 1, 3.07528 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.737156, 0.535832, 0.512195 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 1.2726, 1.25319, 0.713845 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.45614, 1, 1 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 1, 0.615692, 0.560849 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 1, 2.59066, 0.707088 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 1, 0.599451, 0.612325 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.337408, 0.842554, 0.421198 )
 
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
@@ -492,7 +528,7 @@ shape = SubResource( 4 )
 [node name="exterior walls" type="Spatial" parent="ArenaGeometry"]
 
 [node name="Wall1" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 40, -2.62268e-07, -19.5, 3.5, 0 )
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 40, -2.62268e-07, -19.5902, 3.4936, -0.0812283 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
@@ -820,38 +856,163 @@ transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529
 
 [node name="props" type="Spatial" parent="."]
 
-[node name="showerCabin" parent="props" instance=ExtResource( 17 )]
-transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 0.129542, -14.5243 )
-
-[node name="bed" parent="props" instance=ExtResource( 8 )]
+[node name="bed" type="RigidBody" parent="props"]
 transform = Transform( -0.323058, 0, 29.9983, 0, 30, 0, -29.9983, 0, -0.323058, -8.9019, 2.77804, 10.4569 )
+mode = 1
 
-[node name="nightStand" parent="props" instance=ExtResource( 9 )]
+[node name="bed" parent="props/bed" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/bed"]
+transform = Transform( -4.80357e-05, 0.000639811, -0.0333271, -0.000177691, 0.0333267, 0.000640059, 0.0333328, 0.000178581, -4.46147e-05, -0.0647277, 0.193571, -0.11638 )
+shape = SubResource( 5 )
+
+[node name="nightStand" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="nightStand" parent="props/nightStand" instance=ExtResource( 9 )]
 transform = Transform( 0.35028, 0, 29.998, 0, 30, 0, -29.998, 0, 0.35028, -8.9713, 2.78297, 17.018 )
 
-[node name="nightStand2" parent="props" instance=ExtResource( 9 )]
-transform = Transform( 0.35028, 0, 29.998, 0, 30, 0, -29.998, 0, 0.35028, -8.86786, 2.78297, 9.51884 )
+[node name="CollisionShape" type="CollisionShape" parent="props/nightStand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3449, 8.61067, 15.9189 )
+shape = SubResource( 6 )
 
-[node name="sofa" parent="props" instance=ExtResource( 11 )]
+[node name="nightStand2" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.46463 )
+mode = 1
+
+[node name="nightStand" parent="props/nightStand2" instance=ExtResource( 9 )]
+transform = Transform( 0.35028, 0, 29.998, 0, 30, 0, -29.998, 0, 0.35028, -8.9713, 2.78297, 17.018 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/nightStand2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3449, 8.61067, 15.9189 )
+shape = SubResource( 6 )
+
+[node name="sofa" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="sofa" parent="props/sofa" instance=ExtResource( 11 )]
 transform = Transform( 50, 0, 0, 0, 30, 0, 0, 0, 30, 5.76735, 6.86142, 11.8762 )
 
-[node name="sofaStand" parent="props" instance=ExtResource( 10 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/sofa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91684, 7.49923, 16.8114 )
+shape = SubResource( 7 )
+
+[node name="sofa4" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50903, 0 )
+mode = 1
+
+[node name="sofa" parent="props/sofa4" instance=ExtResource( 11 )]
+transform = Transform( 50, 0, 0, 0, 30, 0, 0, 0, 30, 5.76735, 6.86142, 11.8762 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofa4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91684, 7.49923, 16.8114 )
+shape = SubResource( 7 )
+
+[node name="sofa2" type="RigidBody" parent="props"]
+transform = Transform( -0.999959, 0, -0.00904088, 0, 1, 0, 0.00904088, 0, -0.999959, 0, 0, -0.623455 )
+mode = 1
+
+[node name="sofa" parent="props/sofa2" instance=ExtResource( 11 )]
+transform = Transform( 50, 0, 0, 0, 30, 0, 0, 0, 30, 5.76735, 6.86142, 11.8762 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofa2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91684, 7.49923, 16.8114 )
+shape = SubResource( 7 )
+
+[node name="sofa3" type="RigidBody" parent="props"]
+transform = Transform( -0.999959, 0, -0.00904088, 0, 1, 0, 0.00904088, 0, -0.999959, 22.1397, 0, -0.513906 )
+mode = 1
+
+[node name="sofa" parent="props/sofa3" instance=ExtResource( 11 )]
+transform = Transform( 50, 0, 0, 0, 30, 0, 0, 0, 30, 5.76735, 6.86142, 11.8762 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofa3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.91684, 7.49923, 16.8114 )
+shape = SubResource( 7 )
+
+[node name="sofaStand" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="sofaStand" parent="props/sofaStand" instance=ExtResource( 10 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 7.17879, 6.79353, 8.7464 )
 
-[node name="kitchenFurniture" parent="props" instance=ExtResource( 12 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/sofaStand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84122, 8.67733, 12.2266 )
+shape = SubResource( 8 )
+
+[node name="sofaStand4" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.30865, 0 )
+mode = 1
+
+[node name="sofaStand" parent="props/sofaStand4" instance=ExtResource( 10 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 7.17879, 6.79353, 8.7464 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofaStand4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84122, 8.67733, 12.2266 )
+shape = SubResource( 8 )
+
+[node name="sofaStand2" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48903, 0, -25.198 )
+mode = 1
+
+[node name="sofaStand" parent="props/sofaStand2" instance=ExtResource( 10 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 7.17879, 6.79353, 8.7464 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofaStand2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84122, 8.67733, 12.2266 )
+shape = SubResource( 8 )
+
+[node name="sofaStand3" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8681, 0, -25.198 )
+mode = 1
+
+[node name="sofaStand" parent="props/sofaStand3" instance=ExtResource( 10 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 7.17879, 6.79353, 8.7464 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/sofaStand3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84122, 8.67733, 12.2266 )
+shape = SubResource( 8 )
+
+[node name="kitchenFurniture" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="kitchenFurniture" parent="props/kitchenFurniture" instance=ExtResource( 12 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -16.8635, 0.117972, 20.2202 )
 
-[node name="trashCan" parent="props" instance=ExtResource( 13 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/kitchenFurniture"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6171, 2.27506, 14.7234 )
+shape = SubResource( 9 )
+
+[node name="trashCan" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="trashCan" parent="props/trashCan" instance=ExtResource( 13 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -15.6239, 0.479649, 6.67315 )
 
-[node name="fridge" parent="props" instance=ExtResource( 14 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/trashCan"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3846, 1.86284, 10.6411 )
+shape = SubResource( 10 )
+
+[node name="fridge" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="fridge" parent="props/fridge" instance=ExtResource( 14 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -16.8811, 0.196219, 8.19958 )
 
-[node name="diningTable" parent="props" instance=ExtResource( 15 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/fridge"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3442, 2.48235, 7.61559 )
+shape = SubResource( 11 )
+
+[node name="diningTable" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="diningTable" parent="props/diningTable" instance=ExtResource( 15 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -10.0139, 0.216672, 17.9461 )
 
-[node name="plant" parent="props" instance=ExtResource( 16 )]
-transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.198909 )
+[node name="CollisionShape" type="CollisionShape" parent="props/diningTable"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48252, 2.12241, 14.7112 )
+shape = SubResource( 12 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -872,17 +1033,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bathroomCabinet" parent="props" instance=ExtResource( 18 )]
+[node name="bathroomCabinet" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="bathroomCabinet" parent="props/bathroomCabinet" instance=ExtResource( 18 )]
+
 transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 0.13769, -13.6226 )
 
-[node name="toilet" parent="props" instance=ExtResource( 19 )]
+[node name="CollisionShape" type="CollisionShape" parent="props/bathroomCabinet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17461, 2.58574, -18.3646 )
+shape = SubResource( 13 )
+
+[node name="showerCabin" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="showerCabin" parent="props/showerCabin" instance=ExtResource( 17 )]
+transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 0.129542, -14.5243 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/showerCabin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, 3.59267, -17.7988 )
+shape = SubResource( 14 )
+
+[node name="toilet" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="toilet" parent="props/toilet" instance=ExtResource( 19 )]
 transform = Transform( -0.394786, 0, -29.9974, 0, 30, 0, 29.9974, 0, -0.394786, 2.52561, 0.520501, -12.3114 )
 
-[node name="showerCabin2" parent="props" instance=ExtResource( 17 )]
-transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 6.62757, -14.5243 )
+[node name="CollisionShape" type="CollisionShape" parent="props/toilet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70088, 1.99108, -14.4098 )
+shape = SubResource( 15 )
 
-[node name="bathroomCabinet2" parent="props" instance=ExtResource( 18 )]
-transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 6.63572, -13.6226 )
+[node name="bathroomCabinet2" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.50017, 0 )
+mode = 1
 
-[node name="toilet2" parent="props" instance=ExtResource( 19 )]
-transform = Transform( -0.394786, 0, -29.9974, 0, 30, 0, 29.9974, 0, -0.394786, 2.52561, 7.01853, -12.3114 )
+[node name="bathroomCabinet" parent="props/bathroomCabinet2" instance=ExtResource( 18 )]
+transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 0.13769, -13.6226 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/bathroomCabinet2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17461, 2.58574, -18.3646 )
+shape = SubResource( 13 )
+
+[node name="showerCabin2" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.50017, 0 )
+mode = 1
+
+[node name="showerCabin" parent="props/showerCabin2" instance=ExtResource( 17 )]
+transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 0.129542, -14.5243 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/showerCabin2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46437, 3.59267, -17.7988 )
+shape = SubResource( 14 )
+
+[node name="toilet2" type="RigidBody" parent="props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.50017, 0 )
+mode = 1
+
+[node name="toilet" parent="props/toilet2" instance=ExtResource( 19 )]
+transform = Transform( -0.394786, 0, -29.9974, 0, 30, 0, 29.9974, 0, -0.394786, 2.52561, 0.520501, -12.3114 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/toilet2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70088, 1.99108, -14.4098 )
+shape = SubResource( 15 )
+
+[node name="RigidBody" type="RigidBody" parent="props"]
+mode = 1
+
+[node name="plant" parent="props/RigidBody" instance=ExtResource( 16 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.198909 )
+
+[node name="CollisionShape" type="CollisionShape" parent="props/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99539, 2.41757, 7.5803 )
+shape = SubResource( 16 )
