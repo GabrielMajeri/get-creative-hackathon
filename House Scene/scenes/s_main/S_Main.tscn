@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://scenes/objects/fridge/fridge.glb" type="PackedScene" id=14]
 [ext_resource path="res://scenes/objects/diningTable/diningTable.glb" type="PackedScene" id=15]
 [ext_resource path="res://scenes/objects/plant/plant.glb" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/showerCabin/showerCabin.glb" type="PackedScene" id=17]
+[ext_resource path="res://scenes/objects/bathroomCabinet/bathroomCabinet.glb" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/toilet/toilet.glb" type="PackedScene" id=19]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -438,6 +441,54 @@ material/0 = ExtResource( 7 )
 transform = Transform( 1, -3.41061e-13, 1.69407e-21, 0, 1, -1.25278e-23, 0, -2.84217e-14, 1, 0, 0, 0 )
 shape = SubResource( 4 )
 
+[node name="Wall23" type="MeshInstance" parent="ArenaGeometry/Interior walls"]
+transform = Transform( -0.937997, -4.73709e-06, 2.98769e-13, 0, -2.36855e-06, -5.62798, 1.39899e-07, -6.65445, 4.19697e-07, -3.88821, 9.67725, -14.5372 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Interior walls/Wall23"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Interior walls/Wall23/StaticBody"]
+transform = Transform( 1, -3.41061e-13, 1.69407e-21, 0, 1, -1.25278e-23, 0, -2.84217e-14, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall20" type="MeshInstance" parent="ArenaGeometry/Interior walls"]
+transform = Transform( -7.5788e-08, 3.30016, -4.54727e-07, 0, -1.08415e-06, -5.62798, -0.937997, -1.08415e-06, 1.49384e-13, 1.08759, 3.28299, -11.7035 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Interior walls/Wall20"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Interior walls/Wall20/StaticBody"]
+transform = Transform( 1, -3.41061e-13, 1.69407e-21, 0, 1, -1.25278e-23, 0, -2.84217e-14, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall21" type="MeshInstance" parent="ArenaGeometry/Interior walls"]
+transform = Transform( -0.937997, -4.73709e-06, 2.98769e-13, 0, -2.36855e-06, -5.62798, 1.39899e-07, -6.65445, 4.19697e-07, 2.90779, 9.87925, -14.5372 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Interior walls/Wall21"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Interior walls/Wall21/StaticBody"]
+transform = Transform( 1, -3.41061e-13, 1.69407e-21, 0, 1, -1.25278e-23, 0, -2.84217e-14, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall22" type="MeshInstance" parent="ArenaGeometry/Interior walls"]
+transform = Transform( -7.5788e-08, 3.30016, -4.54727e-07, 0, -1.08415e-06, -5.62798, -0.937997, -1.08415e-06, 1.49384e-13, 1.08759, 9.87926, -11.7035 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Interior walls/Wall22"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Interior walls/Wall22/StaticBody"]
+transform = Transform( 1, -3.41061e-13, 1.69407e-21, 0, 1, -1.25278e-23, 0, -2.84217e-14, 1, 0, 0, 0 )
+shape = SubResource( 4 )
+
 [node name="exterior walls" type="Spatial" parent="ArenaGeometry"]
 
 [node name="Wall1" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
@@ -769,6 +820,9 @@ transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529
 
 [node name="props" type="Spatial" parent="."]
 
+[node name="showerCabin" parent="props" instance=ExtResource( 17 )]
+transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 0.129542, -14.5243 )
+
 [node name="bed" parent="props" instance=ExtResource( 8 )]
 transform = Transform( -0.323058, 0, 29.9983, 0, 30, 0, -29.9983, 0, -0.323058, -8.9019, 2.77804, 10.4569 )
 
@@ -817,3 +871,18 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="bathroomCabinet" parent="props" instance=ExtResource( 18 )]
+transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 0.13769, -13.6226 )
+
+[node name="toilet" parent="props" instance=ExtResource( 19 )]
+transform = Transform( -0.394786, 0, -29.9974, 0, 30, 0, 29.9974, 0, -0.394786, 2.52561, 0.520501, -12.3114 )
+
+[node name="showerCabin2" parent="props" instance=ExtResource( 17 )]
+transform = Transform( 10.17, 0, -28.2236, 0, 40, 0, 28.2236, 0, 10.17, 4.1874, 6.62757, -14.5243 )
+
+[node name="bathroomCabinet2" parent="props" instance=ExtResource( 18 )]
+transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 6.63572, -13.6226 )
+
+[node name="toilet2" parent="props" instance=ExtResource( 19 )]
+transform = Transform( -0.394786, 0, -29.9974, 0, 30, 0, 29.9974, 0, -0.394786, 2.52561, 7.01853, -12.3114 )
