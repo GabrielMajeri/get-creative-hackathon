@@ -798,3 +798,22 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -10.0139, 0.216672, 17.9461
 
 [node name="plant" parent="props" instance=ExtResource( 16 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.198909 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionLabel" type="Label" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -66.0
+text = "Press E to interact"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
