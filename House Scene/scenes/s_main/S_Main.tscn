@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -7,6 +7,15 @@
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/s_main/materials/dark.material" type="Material" id=6]
 [ext_resource path="res://scenes/s_main/materials/blue.material" type="Material" id=7]
+[ext_resource path="res://scenes/objects/bed/bed.glb" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/nightStand/nightStand.glb" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/sofaStand/sofaStand.glb" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/sofa/sofa.glb" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/kitchenFurniture/kitchenFurniture.glb" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/trashCan/trashCan.glb" type="PackedScene" id=13]
+[ext_resource path="res://scenes/objects/fridge/fridge.glb" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/diningTable/diningTable.glb" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/plant/plant.glb" type="PackedScene" id=16]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -27,6 +36,7 @@ script = ExtResource( 2 )
 
 [node name="RoofFloor" type="MeshInstance" parent="ArenaGeometry"]
 transform = Transform( 40, 0, 0, 0, -6.51683e-06, -1, 0, 40, -1.62921e-07, 0.0383358, 13.9213, -0.0594964 )
+visible = false
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 6 )
@@ -259,6 +269,7 @@ material/0 = ExtResource( 6 )
 shape = SubResource( 2 )
 
 [node name="Roof" type="Spatial" parent="ArenaGeometry"]
+visible = false
 
 [node name="Floor2" type="MeshInstance" parent="ArenaGeometry/Roof"]
 transform = Transform( 17.2655, 2.49756e-06, 0.383248, 7.16397, -6.01924e-06, -0.923646, 0, 40, -1.62921e-07, -11.4513, 18.3122, -0.0594964 )
@@ -294,7 +305,7 @@ material/0 = ExtResource( 6 )
 shape = SubResource( 2 )
 
 [node name="outside floor" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 77.2152, 0, 0, 0, -6.51683e-06, -1, 0, 96.3493, -3.92433e-07, 1.85735, -0.536398, -0.0594964 )
+transform = Transform( 77.2152, 0, 0, 0, -6.51683e-06, -1, 0, 96.3493, -3.92433e-07, 1.89816, -0.584227, -0.0187783 )
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 4 )
@@ -452,7 +463,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall2" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 17.8265, -1.16883e-07, 19.5, 3.5, 10.1584 )
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 18.6723, -1.22429e-07, 19.4974, 3.56247, 10.6087 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
@@ -463,7 +474,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall21" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 15.305, -1.00351e-07, 19.5, 3.5, -11.7452 )
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 16.6621, -1.09249e-07, 19.5, 3.5, -11.6895 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
@@ -471,28 +482,6 @@ material/0 = ExtResource( 7 )
 [node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall21"]
 
 [node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall21/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="Wall3" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0.00045681, 3.47958, 19.5052 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall3"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall3/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="Wall6" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0.00045681, 10.4796, 19.5052 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall6"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall6/StaticBody"]
 shape = SubResource( 4 )
 
 [node name="Wall7" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
@@ -506,49 +495,255 @@ material/0 = ExtResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall7/StaticBody"]
 shape = SubResource( 4 )
 
-[node name="Wall8" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0, 10.5, -19.5 )
+[node name="exterior wall" type="Spatial" parent="ArenaGeometry/exterior walls"]
+
+[node name="Wall8" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 12.6251, -19.5 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
 
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall8"]
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall/Wall8"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall8/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall/Wall8/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="Wall4" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0, 3.5, -19.5 )
+[node name="Wall11" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall"]
+transform = Transform( -1.94015e-08, 17.7542, -1.16409e-07, 0, -1.03987e-06, -3.56841, -1.04091, -1.81999e-06, 1.19331e-14, 0, 10.3392, -19.5 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
 
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall4"]
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall/Wall11"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall4/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall/Wall11/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="Wall9" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0.00045681, 10.4796, 19.5052 )
-visible = false
+[node name="Wall12" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, 16.8188, 10.3392, -19.5 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
 
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall9"]
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall/Wall12"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall9/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall/Wall12/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="Wall20" type="MeshInstance" parent="ArenaGeometry/exterior walls"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0.00045681, 10.4796, 19.5052 )
+[node name="Wall13" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, -17.0292, 10.3392, -19.5 )
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = ExtResource( 7 )
 
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/Wall20"]
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall/Wall13"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/Wall20/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall/Wall13/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall10" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 8.36698, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall/Wall10/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="exterior wall4" type="Spatial" parent="ArenaGeometry/exterior walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.91751, 0 )
+
+[node name="Wall8" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall4"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 12.6251, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall4/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall4/Wall8/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall11" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall4"]
+transform = Transform( -1.94015e-08, 17.7542, -1.16409e-07, 0, -1.03987e-06, -3.56841, -1.04091, -1.81999e-06, 1.19331e-14, 0, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall4/Wall11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall4/Wall11/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall12" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall4"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, 16.8006, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall4/Wall12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall4/Wall12/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall13" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall4"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, -17.0292, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall4/Wall13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall4/Wall13/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall10" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall4"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 8.36698, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall4/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall4/Wall10/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="exterior wall2" type="Spatial" parent="ArenaGeometry/exterior walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38.9912 )
+
+[node name="Wall8" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall2"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0.164145, 12.4782, -19.504 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall2/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall2/Wall8/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall11" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall2"]
+transform = Transform( -1.94015e-08, 17.7542, -1.16409e-07, 0, -1.03987e-06, -3.56841, -1.04091, -1.81999e-06, 1.19331e-14, 0, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall2/Wall11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall2/Wall11/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall12" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall2"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, 16.7653, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall2/Wall12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall2/Wall12/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall13" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall2"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, -17.0292, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall2/Wall13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall2/Wall13/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall10" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall2"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 8.36698, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall2/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall2/Wall10/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="exterior wall3" type="Spatial" parent="ArenaGeometry/exterior walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5983, 38.9912 )
+
+[node name="Wall8" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall3"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 12.6251, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall3/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall3/Wall8/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall11" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall3"]
+transform = Transform( -1.94015e-08, 17.7542, -1.16409e-07, 0, -1.03987e-06, -3.56841, -1.04091, -1.81999e-06, 1.19331e-14, 0, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall3/Wall11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall3/Wall11/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall12" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall3"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, 16.8005, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall3/Wall12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall3/Wall12/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall13" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall3"]
+transform = Transform( -4.86868e-09, 4.45529, -2.9212e-08, 0, -9.99e-07, -3.42816, -1, -1.74846e-06, 1.14641e-14, -17.0292, 10.3392, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall3/Wall13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall3/Wall13/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Wall10" type="MeshInstance" parent="ArenaGeometry/exterior walls/exterior wall3"]
+transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -5.21929e-07, -1.79105, -1, -1.74846e-06, 1.14641e-14, 0, 8.36698, -19.5 )
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/exterior walls/exterior wall3/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/exterior walls/exterior wall3/Wall10/StaticBody"]
+transform = Transform( 1.02763, -2.27374e-12, 1.77877e-20, 0, 1.02763, -5.32907e-15, 0, -1.7053e-13, 1.02763, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="Lighting" type="Spatial" parent="."]
@@ -572,8 +767,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 [node name="Dumpster" type="CSGBox" parent="Interactive"]
 transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529, 1.60763, -1.90201e-07, 1.25964, -0.000819394, 1.85735, 1.59532, 33.0685 )
 
-[node name="Trash can" type="CSGBox" parent="Interactive"]
-transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529, 1.60763, -1.90201e-07, 1.25964, -0.000819394, -16.1563, 1.69136, 10.8884 )
+[node name="props" type="Spatial" parent="."]
 
-[node name="Bed" type="CSGBox" parent="Interactive"]
-transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529, 1.60763, -1.90201e-07, 1.25964, -0.000819394, -16.1563, 9.34915, 10.8884 )
+[node name="bed" parent="props" instance=ExtResource( 8 )]
+transform = Transform( -0.323058, 0, 29.9983, 0, 30, 0, -29.9983, 0, -0.323058, -8.9019, 2.77804, 10.4569 )
+
+[node name="nightStand" parent="props" instance=ExtResource( 9 )]
+transform = Transform( 0.35028, 0, 29.998, 0, 30, 0, -29.998, 0, 0.35028, -8.9713, 2.78297, 17.018 )
+
+[node name="nightStand2" parent="props" instance=ExtResource( 9 )]
+transform = Transform( 0.35028, 0, 29.998, 0, 30, 0, -29.998, 0, 0.35028, -8.86786, 2.78297, 9.51884 )
+
+[node name="sofa" parent="props" instance=ExtResource( 11 )]
+transform = Transform( 50, 0, 0, 0, 30, 0, 0, 0, 30, 5.76735, 6.86142, 11.8762 )
+
+[node name="sofaStand" parent="props" instance=ExtResource( 10 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 7.17879, 6.79353, 8.7464 )
+
+[node name="kitchenFurniture" parent="props" instance=ExtResource( 12 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -16.8635, 0.117972, 20.2202 )
+
+[node name="trashCan" parent="props" instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -15.6239, 0.479649, 6.67315 )
+
+[node name="fridge" parent="props" instance=ExtResource( 14 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -16.8811, 0.196219, 8.19958 )
+
+[node name="diningTable" parent="props" instance=ExtResource( 15 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, -10.0139, 0.216672, 17.9461 )
+
+[node name="plant" parent="props" instance=ExtResource( 16 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.198909 )
