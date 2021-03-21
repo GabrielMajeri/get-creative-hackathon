@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/assets/fps_counter/fps_counter.gd" type="Script" id=1]
+[ext_resource path="res://interface/fps_counter/fps_counter.gd" type="Script" id=1]
+
 
 
 
