@@ -21,8 +21,6 @@
 [ext_resource path="res://house_scene/objects/toilet/toilet.glb" type="PackedScene" id=19]
 [ext_resource path="res://scripts/Interactable.gd" type="Script" id=20]
 
-
-
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
 
@@ -73,7 +71,7 @@ extents = Vector3( 0.337408, 0.842554, 0.421198 )
 
 [sub_resource type="BoxShape" id=17]
 
-[node name="S_Main" type="Spatial"]
+[node name="House" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="ArenaGeometry" type="Spatial" parent="."]
@@ -851,6 +849,8 @@ shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+head_path = NodePath("../../House/Player/Head")
+cam_path = NodePath("../../House/Player/Head/Camera")
 
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
 

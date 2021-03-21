@@ -3,7 +3,6 @@
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/Interaction.gd" type="Script" id=2]
 
-
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.6
 height = 1.5
