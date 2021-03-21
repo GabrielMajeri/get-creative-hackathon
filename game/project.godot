@@ -18,6 +18,15 @@ _global_script_class_icons={
 config/name="Dream"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1366
+window/size/height=768
+
+[gui]
+
+theme/custom_font="res://main_menu_scene/fonts/montserrat_48.tres"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
