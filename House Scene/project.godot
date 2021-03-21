@@ -1143,6 +1143,10 @@ Interact={
 3d_physics/layer_1="Objects"
 3d_physics/layer_2="Player"
 
+[memory]
+
+limits/message_queue/max_size_kb=16384
+
 [rendering]
 
 quality/filters/msaa=1
