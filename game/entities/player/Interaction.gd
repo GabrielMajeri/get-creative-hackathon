@@ -31,6 +31,9 @@ func _process(delta):
 
 
 func set_interaction_text(text):
+	if get_tree().get_current_scene().get_name() != "House":
+		return
+
 	var interaction_label = get_node("/root/House/UI/InteractionLabel")
 	if !text:
 		interaction_label.set_text("")
