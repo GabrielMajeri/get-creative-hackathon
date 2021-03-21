@@ -1,9 +1,8 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://house_scene/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://house_scene/House.gd" type="Script" id=2]
 [ext_resource path="res://house_scene/materials/grass.tres" type="Material" id=4]
-[ext_resource path="res://interface/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://house_scene/materials/dark.material" type="Material" id=6]
 [ext_resource path="res://house_scene/materials/blue.material" type="Material" id=7]
 [ext_resource path="res://house_scene/objects/bed/bed.glb" type="PackedScene" id=8]
@@ -844,13 +843,10 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
-[node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
-
 [node name="props" type="Spatial" parent="."]
 
-[node name="bed" type="RigidBody" parent="props"]
+[node name="bed" type="StaticBody" parent="props"]
 transform = Transform( -0.323058, 0, 29.9983, 0, 30, 0, -29.9983, 0, -0.323058, -8.9019, 2.77804, 10.4569 )
-mode = 1
 
 [node name="bed" parent="props/bed" instance=ExtResource( 8 )]
 
@@ -1079,7 +1075,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99539, 2.41757, 7.5803 )
 shape = SubResource( 16 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92674, 2.37468, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0336, 8.09446, 12.5907 )
 
 [node name="StaticBody" type="StaticBody" parent="CSGBox"]
 collision_layer = 2

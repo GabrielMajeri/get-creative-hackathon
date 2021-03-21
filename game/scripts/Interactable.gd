@@ -8,4 +8,5 @@ func get_interaction_text():
 	return "Interact"
 	
 func interact():
-	print("Interacted with %s" % name)
+	get_tree().change_scene("res://office_scene/Office.tscn")
+
