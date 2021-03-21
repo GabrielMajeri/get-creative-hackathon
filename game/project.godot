@@ -20,10 +20,13 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1366
+window/size/height=768
+
+[gui]
+
+theme/custom_font="res://main_menu_scene/fonts/montserrat_48.tres"
 
 [rendering]
 
-environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
