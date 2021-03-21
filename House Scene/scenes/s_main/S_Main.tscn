@@ -1015,7 +1015,6 @@ shape = SubResource( 12 )
 mode = 1
 
 [node name="bathroomCabinet" parent="props/bathroomCabinet" instance=ExtResource( 18 )]
-
 transform = Transform( -4.88762e-06, 0, -30, 0, 30, 0, 30, 0, -4.88762e-06, 1.20261, 0.13769, -13.6226 )
 
 [node name="CollisionShape" type="CollisionShape" parent="props/bathroomCabinet"]
