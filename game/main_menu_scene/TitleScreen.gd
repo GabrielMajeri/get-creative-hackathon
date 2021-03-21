@@ -9,7 +9,7 @@ func _ready():
 	quit_button.connect("pressed", self, "_quit_button_pressed")
 
 func _start_button_pressed():
-	get_tree().change_scene("res://house_scene/House.tscn")
+	get_tree().change_scene("res://levels/Level1.tscn")
 
 func _quit_button_pressed():
 	# Exit the game

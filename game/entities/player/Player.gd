@@ -59,6 +59,9 @@ func _input(event: InputEvent) -> void:
 		camera_rotation()
 
 
+func enable_interactions():
+		$Head/Camera/InteractionRayCast.enable()
+
 func walk(delta: float) -> void:
 	# Input
 	direction = Vector3()
