@@ -48,7 +48,7 @@ size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
-[node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+[node name="StartGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_right = 360.0
 margin_bottom = 60.0
 
