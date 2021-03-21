@@ -4,7 +4,7 @@ extends Node
 
 class_name Interactable
 
-func get_interactable_text():
+func get_interaction_text():
 	return "Interact"
 	
 func interact():

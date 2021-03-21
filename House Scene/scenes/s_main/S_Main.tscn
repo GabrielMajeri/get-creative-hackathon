@@ -69,7 +69,7 @@ extents = Vector3( 1, 0.599451, 0.612325 )
 [sub_resource type="BoxShape" id=16]
 extents = Vector3( 0.337408, 0.842554, 0.421198 )
 
-[sub_resource type="PhysicsMaterial" id=17]
+[sub_resource type="BoxShape" id=17]
 
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
@@ -852,11 +852,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
 
-[node name="Interactive" type="Spatial" parent="."]
-
-[node name="Dumpster" type="CSGBox" parent="Interactive"]
-transform = Transform( 1.2056, 1.8204e-07, 1.32452e-17, -1.56324e-10, 0.00103529, 1.60763, -1.90201e-07, 1.25964, -0.000819394, 1.85735, 1.59532, 33.0685 )
-
 [node name="props" type="Spatial" parent="."]
 
 [node name="bed" type="RigidBody" parent="props"]
@@ -865,13 +860,9 @@ mode = 1
 
 [node name="bed" parent="props/bed" instance=ExtResource( 8 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="props/bed/bed"]
-transform = Transform( -4.80356e-05, 0.000639811, -0.0333271, -0.000177691, 0.0333267, 0.000640059, 0.0333328, 0.000178581, -4.46147e-05, -0.0647277, 0.193571, -0.11638 )
+[node name="CollisionShape" type="CollisionShape" parent="props/bed"]
+transform = Transform( -4.80355e-05, 0.000639811, -0.0333271, -0.000177691, 0.0333267, 0.000640059, 0.0333328, 0.000178581, -4.46147e-05, -0.0647277, 0.193571, -0.11638 )
 shape = SubResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="props/bed/bed"]
-collision_layer = 2
-script = ExtResource( 20 )
 
 [node name="nightStand" type="RigidBody" parent="props"]
 mode = 1
@@ -1094,18 +1085,6 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.1989
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99539, 2.41757, 7.5803 )
 shape = SubResource( 16 )
 
-[node name="CSGBox" type="CSGBox" parent="props"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20081, 3.20216 )
-layers = 2147483650
-
-[node name="StaticBody" type="StaticBody" parent="props/CSGBox"]
-collision_layer = 2
-physics_material_override = SubResource( 17 )
-script = ExtResource( 20 )
-
-[node name="CollisionShape" type="CollisionShape" parent="props/CSGBox/StaticBody"]
-script = ExtResource( 20 )
-
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1124,3 +1103,13 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92674, 2.37468, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="CSGBox"]
+collision_layer = 2
+script = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGBox/StaticBody"]
+shape = SubResource( 17 )
