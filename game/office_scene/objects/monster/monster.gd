@@ -8,6 +8,7 @@ var path = []
 var path_node = 0
 var speed = 10
 var isRunning = 0
+var hitting = 0
 onready var nav = get_parent()
 onready var player = get_node("/root/Office/Player")
 #onready var player = $"../..//Player"
@@ -19,21 +20,27 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(isRunning):
-		anim.play("Run")
+	if(hitting):
+		anim.play("Attack_1")
 	else:
-		anim.play("Idle-loop")
+		if(isRunning):
+			anim.play("Run")
+		else:
+			anim.play("Idle-loop")
 
 func _physics_process(delta):
 	if path_node < path.size():
+		isRunning = 1
+		hitting = 0
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
 			path_node += 1
 		else : 
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
-			
+	else:
+		isRunning = 0
+		hitting = 1
 func move_to(target_pos):
-	isRunning = 1
 	path = nav.get_simple_path(global_transform.origin, target_pos)
 	path_node = 0
 
