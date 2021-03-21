@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/interface/fonts/montserrat_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://interface/InteractionBar.gd" type="Script" id=2]
+
+[node name="InteractionBar" type="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -81.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1.01685
+margin_top = 0.7854
+margin_right = 1390.98
+margin_bottom = 88.7854
+color = Color( 0.168627, 0.168627, 0.168627, 0.427451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 143.832
+margin_top = -70.1272
+margin_right = -217.168
+margin_bottom = -4.1272
+custom_fonts/font = ExtResource( 1 )
+text = "Press E to interact"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

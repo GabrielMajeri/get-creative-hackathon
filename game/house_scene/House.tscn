@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://house_scene/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://house_scene/House.gd" type="Script" id=2]
-[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://house_scene/materials/grass.tres" type="Material" id=4]
 [ext_resource path="res://interface/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://house_scene/materials/dark.material" type="Material" id=6]
@@ -847,11 +846,6 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-head_path = NodePath("../../House/Player/Head")
-cam_path = NodePath("../../House/Player/Head/Camera")
-
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
 
 [node name="props" type="Spatial" parent="."]
@@ -1085,25 +1079,6 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 40, -5.39149, -3.49121, -0.1989
 [node name="CollisionShape" type="CollisionShape" parent="props/RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99539, 2.41757, 7.5803 )
 shape = SubResource( 16 )
-
-[node name="UI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InteractionLabel" type="Label" parent="UI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -66.0
-text = "Press E to interact"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92674, 2.37468, 0 )
