@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fill.png-d47df49ffe2ff4097a5a1bede5e2341e.stex"
+path="res://.import/background.png-9caeff437864efd4391ab07b85ec6891.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bar/fill.png"
-dest_files=[ "res://.import/fill.png-d47df49ffe2ff4097a5a1bede5e2341e.stex" ]
+source_file="res://assets/interface/oxygen-bar/background.png"
+dest_files=[ "res://.import/background.png-9caeff437864efd4391ab07b85ec6891.stex" ]
 
 [params]
 
